@@ -13093,6 +13093,23 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered" id="cell-id=29ecb85c"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Home-Depot-(HD):-Time-Series-Stylised-Facts,-CAPM/APT,-ARMA-&amp;-GARCH">Home Depot (HD): Time-Series Stylised Facts, CAPM/APT, ARMA &amp; GARCH<a class="anchor-link" href="#Home-Depot-(HD):-Time-Series-Stylised-Facts,-CAPM/APT,-ARMA-&amp;-GARCH">¶</a></h1><p><strong>Author:</strong> Yurui Qiu · Personal project</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=cf6dffca"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Executive-Summary">Executive Summary<a class="anchor-link" href="#Executive-Summary">¶</a></h2><p>This project shows that HD return <strong>levels</strong> are hard to forecast, but return
+<strong>volatility</strong> is predictable. ARMA barely improves point forecasts over a
+white-noise benchmark, while the Engle ARCH-LM test and GARCH(1,1) results show
+strong conditional heteroskedasticity. The main takeaway is that <strong>risk
+modelling is more useful than point-return prediction</strong> for this asset --
+which has direct implications for Value-at-Risk and options pricing, where the
+object of interest is the width of the distribution rather than its centre.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=211a3015"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>This notebook:</p>
 <ol>
 <li>Pulls HD daily/hourly prices and computes log-returns</li>
@@ -14592,6 +14609,19 @@ BDS test (non-linear dependence in standardized residuals):
 "/>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" id="cell-id=05959db8"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Caveat on the long-run mean above:</strong> the selected ARMA(2,1) has AR
+coefficients that sum to approximately 0.995 -- very close to the
+non-stationarity boundary. The analytical long-run mean formula divides by
+<code>(1 - sum of AR coefficients)</code>, so a denominator this close to zero makes the
+resulting estimate numerically unstable and <strong>not economically meaningful</strong>
+(a daily mean return on the order of tens of percent is not plausible). The
+out-of-sample RMSE comparison in Section 6e-f is a more reliable way to judge
+this model's forecasting value than the long-run mean estimate.</p>
 </div>
 </div>
 </div>
